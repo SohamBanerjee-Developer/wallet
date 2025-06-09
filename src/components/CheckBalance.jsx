@@ -62,5 +62,5 @@ function CheckBalance() {
 }
 
 export default CheckBalance
-// Tip: This event is similar to the oninput event. The difference is that the oninput event occurs immediately after the value of an element has changed, while onchange occurs when the element loses focus, after the content has been changed. The other difference is that the onchange event also works on <select> elements.
+// Tip: This event is similar to the onInput event. The difference is that the onInput event occurs immediately after the value of an element has changed, while onChange occurs when the element loses focus, after the content has been changed. The other difference is that the onchange event also works on <select> elements.
 

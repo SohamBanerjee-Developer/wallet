@@ -20,10 +20,17 @@ function AddSolWallet({mnemonic}) {
             <button className="wallet bg-gray-900 p-3 rounded-lg"
             onClick={mnemonic? async function() {
                 const seed = mnemonicToSeed(mnemonic);
+                console.log(seed);//an promise whose result is uint8(64) array
                 const path = `m/44'/501'/${currentIndex}'/0'`;
                 const derivedSeed = derivePath(path, seed.toString("hex")).key;
+                console.log(derivedSeed);//logged: uint8(32) array for child private key
+                
                 const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
+                console.log(secret);   //logged:  uint8(64) array for child private key || child public key
+                
                 const keypair = Keypair.fromSecretKey(secret);
+                console.log(keypair);//logged: an object containining both the keypairs
+                
                 setCurrentIndex(currentIndex + 1);
                 console.log(keypair.publicKey);
                 

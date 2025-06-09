@@ -20,7 +20,8 @@ export const EthWallet = ({mnemonic}) => {
                 const seed = await mnemonicToSeed(mnemonic);
                 const derivationPath = `m/44'/60'/${currentIndex}'/0'`;
                  const hdNode = HDNodeWallet.fromSeed(seed);
-                 const child = hdNode.derivePath(derivationPath);
+                 const child = hdNode.derivePath(derivationPath);//child seed
+                //   console.log(child); //its an object                 
                  const privateKey = child.privateKey;
                  const wallet = new Wallet(privateKey);
                  setCurrentIndex(currentIndex + 1);
